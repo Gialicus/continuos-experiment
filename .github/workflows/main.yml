@@ -15,11 +15,5 @@ jobs:
       - name: Install 🔧
         run: npm install
 
-      - name: Dev 🧐
-        run: npm run dev
-
-      - name: Start 🏗️
-        run: npm run start
-
       - name: Test 🚨
         run: npm run test
