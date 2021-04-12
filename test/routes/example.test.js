@@ -6,22 +6,13 @@ const { build } = require('../helper')
 test('example is loaded', async (t) => {
   const app = build(t)
 
-  const res = await app.inject({
-    url: '/example'
+  const res1 = await app.inject({
+    url: '/example/insert'
   })
-  t.equal(res.payload, 'this is an example')
+  t.type(res1.payload, 'string')
+  const res2 = await app.inject({
+    url: '/example/select'
+  })
+  t.type(res2.payload, 'string')
 })
 
-// inject callback style:
-//
-// test('example is loaded', (t) => {
-//   t.plan(2)
-//   const app = build(t)
-//
-//   app.inject({
-//     url: '/example'
-//   }, (err, res) => {
-//     t.error(err)
-//     t.equal(res.payload, 'this is an example')
-//   })
-// })

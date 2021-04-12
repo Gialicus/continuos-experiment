@@ -25,6 +25,8 @@
     "fastify-swagger": "^4.5.1"
   },
   "devDependencies": {
+    "mongo-clean": "^2.0.0",
+    "mongodb": "^3.6.6",
     "tap": "^14.11.0"
   }
 }

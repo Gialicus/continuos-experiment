@@ -23,8 +23,8 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   })
   
-  fastify.ready(err => {
-    if (err) throw err
-    fastify.swagger()
-  })
+  // fastify.ready(err => {
+  //   if (err) throw err
+  //   fastify.swagger()
+  // })
 }

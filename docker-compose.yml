@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  my-base-service:
+    container_name: my-base-service
+    restart: "always"
+    depends_on: 
+      - mongodb
+      - rabbitmq
+    build:
+      context: .
+    ports: 
+      - 3000:3000
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: "always"
+    environment:
+        RABBITMQ_DEFAULT_USER: "guest"
+        RABBITMQ_DEFAULT_PASS: "guest"
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017

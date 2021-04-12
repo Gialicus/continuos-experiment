@@ -10,18 +10,6 @@ test('default root route', async (t) => {
     url: '/'
   })
   t.deepEqual(JSON.parse(res.payload), { root: true })
+  // t.pass('test')
 })
 
-// inject callback style:
-//
-// test('default root route', (t) => {
-//   t.plan(2)
-//   const app = build(t)
-//
-//   app.inject({
-//     url: '/'
-//   }, (err, res) => {
-//     t.error(err)
-//     t.deepEqual(JSON.parse(res.payload), { root: true })
-//   })
-// })
