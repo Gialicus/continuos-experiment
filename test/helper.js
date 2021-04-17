@@ -12,7 +12,7 @@ const clean = require('mongo-clean')
 const { MongoClient } = require('mongodb')
 const { beforeEach, tearDown, test } = require('tap')
 const mongoUrl = 'mongodb://localhost:27017'
-const postgresUrl = 'postgres://postgres@localhost/postgres'
+const postgresUrl = 'postgres://localhost:5432/postgres'
 const database = 'tests'
 
 let client
