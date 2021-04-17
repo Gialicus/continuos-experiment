@@ -15,11 +15,15 @@ const database = 'tests'
 
 let client
 
+process.env.NODE_ENV = 'test'
+process.env.MONGO_URL = url
+
 beforeEach(async function () {
   if (!client) {
     client = await MongoClient.connect(url, {
       w: 1,
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     })
   }
   await clean(client.db(database))

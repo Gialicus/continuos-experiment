@@ -2,12 +2,18 @@
 
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
+const S = require('fluent-json-schema')
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
-
+  fastify.register(require('fastify-env'), {
+    schema: S.object()
+      .prop('NODE_ENV', S.string().required())
+      .prop('MONGO_URL',S.string().required())
+      .valueOf()
+  })
   // Do not touch the following lines
-
+  
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused
   // through your application
@@ -23,8 +29,4 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   })
   
-  // fastify.ready(err => {
-  //   if (err) throw err
-  //   fastify.swagger()
-  // })
 }
