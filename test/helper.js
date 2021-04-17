@@ -23,7 +23,7 @@ process.env.SECRET = 'supersecretkeymaybe'
 
 beforeEach(async function () {
   if (!client) {
-    client = await MongoClient.connect(url, {
+    client = await MongoClient.connect(mongoUrl, {
       w: 1,
       useNewUrlParser: true,
       useUnifiedTopology: true
