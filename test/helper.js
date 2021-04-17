@@ -17,6 +17,8 @@ let client
 
 process.env.NODE_ENV = 'test'
 process.env.MONGO_URL = url
+process.env.POSTGRES_URL = 'postgres://postgres@postgres/postgres'
+process.env.SECRET = 'supersecretkeymaybe'
 
 beforeEach(async function () {
   if (!client) {
