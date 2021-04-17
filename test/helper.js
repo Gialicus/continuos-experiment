@@ -6,6 +6,7 @@
 const Fastify = require('fastify')
 const fp = require('fastify-plugin')
 const App = require('../app')
+const { Client } = require('pg')
 
 const clean = require('mongo-clean')
 const { MongoClient } = require('mongodb')
@@ -15,6 +16,7 @@ const postgresUrl = 'postgres://postgres@localhost/postgres'
 const database = 'tests'
 
 let client
+let pgClient
 
 process.env.NODE_ENV = 'test'
 process.env.MONGO_URL = mongoUrl
@@ -28,6 +30,9 @@ beforeEach(async function () {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
+  }
+  if (!pgClient) {
+    pgClient = new Client(postgresUrl)
   }
   await clean(client.db(database))
 })
@@ -49,6 +54,9 @@ function config () {
     mongodb: {
       client,
       database
+    },
+    pg: {
+      client: pgClient
     }
   }
 }
