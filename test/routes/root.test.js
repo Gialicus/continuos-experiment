@@ -10,6 +10,5 @@ test('default root route', async (t) => {
     url: '/'
   })
   t.deepEqual(JSON.parse(res.payload), { root: true })
-  // t.pass('test')
 })
 
