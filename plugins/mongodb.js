@@ -6,6 +6,6 @@ module.exports = fp(async function(fastify,opts) {
         // force to close the mongodb connection when app stopped
         // the default value is false
         forceClose: true,
-        url: 'mongodb://localhost:27017'
+        url: fastify.config.MONGO_URL
       })
 })
