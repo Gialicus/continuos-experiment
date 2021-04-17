@@ -10,14 +10,15 @@ const App = require('../app')
 const clean = require('mongo-clean')
 const { MongoClient } = require('mongodb')
 const { beforeEach, tearDown, test } = require('tap')
-const url = 'mongodb://localhost:27017'
+const mongoUrl = 'mongodb://localhost:27017'
+const postgresUrl = 'postgres://postgres@localhost/postgres'
 const database = 'tests'
 
 let client
 
 process.env.NODE_ENV = 'test'
-process.env.MONGO_URL = url
-process.env.POSTGRES_URL = 'postgres://postgres@postgres/postgres'
+process.env.MONGO_URL = mongoUrl
+process.env.POSTGRES_URL = postgresUrl
 process.env.SECRET = 'supersecretkeymaybe'
 
 beforeEach(async function () {
